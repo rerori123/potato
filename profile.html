@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Potato</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("tree.jpg");
+            height: 100vh;
+            background-size: 100%;
+        }
+
+        nav {
+            opacity: 0.9;
+        }
+
+        .logo {
+            height: 40px;
+            margin: 10px
+        }
+
+        .profile {
+            height: 30px;
+        }
+        .profile_main{
+            height:150px;
+            margin:100px
+        }
+
+        #profile {
+            width: 400px;
+            height: 550px;
+            background-color: #fafafa;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity:0.9;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #fafafa;
+            height: 100px;
+            border-radius: 5px;
+            opacity: 0.9;
+        }
+
+        .logo2x {
+            height: 60px;
+            margin: 20px
+        }
+
+        .button {
+           padding: 8px;
+           text-align: center;
+           background-color: #245841;
+           color: #f0f0f0;
+           font-size: 14px;
+           border: 1px solid transparent;
+           border-radius: 15px;
+           margin: 20px 0px;
+           cursor: pointer;
+           transition: all 0.2s ease-in;
+           font-family: 'Raleway', sans-serif;
+           margin-top:0px;
+       }
+
+       .button:hover {
+           background-color: transparent;
+           border: 1px solid #245841;
+           color: rgb(19, 19, 19);
+          
+       }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#"><img src="login.png" class="logo"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a id="signout" href="#">Sign out</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><img src="profile.png" class="profile"></a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="profile">
+        <img src="proicon.png" class="profile_main">
+        Name: <p id="username"></p>
+        <br />
+        Email: <p id="email"></p>
+    </div>
+
+    <div class="footer">
+        <img src="logo2x.png" class="logo2x">
+    </div>
+    <script>
+        const isLoggedIn = localStorage.isLoggedIn;
+        if(isLoggedIn !== "true")
+            location.replace("/");
+        
+        const user = JSON.parse(localStorage.user);
+        console.log(user);
+        $("img.profile_main").attr("src", user.photoURL);
+        $("#username").text(user.displayName);
+        $("#email").text(user.email);
+        $("#signout").on("click", (e) => {
+            e.preventDefault();
+            console.log("hello");
+            localStorage.isLoggedIn = "false";
+            localStorage.user = "";
+            location.replace("/");
+        })
+    </script>
+</body>
+
+</html>

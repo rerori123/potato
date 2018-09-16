@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Potato</title>
+   <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+   <style>
+       body{
+           background-image: url("trees.jpg");
+           height: 100vh;
+           background-size: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+
+       #container {
+           width: 350px;
+           height: 250px;
+           background-color: rgba(255, 255, 255, 0.8);
+           display: flex;
+           flex-direction: column;
+           justify-content: flex-start;
+           align-items: center;
+           padding: 20px;
+           border: none;
+           border-radius: 10px;
+       }
+
+       #logo {
+           background-image: url("assets/logo.png");
+           background-repeat: no-repeat;
+           background-size: 150px 50px;
+           width: 150px;
+           height: 50px;
+           margin-bottom: 20px;
+       }
+
+       .button {
+           padding: 8px;
+           width: 150px;
+           text-align: center;
+           background-color: #245841;
+           color: #f0f0f0;
+           font-size: 14px;
+           border: 1px solid transparent;
+           border-radius: 15px;
+           margin: 20px 0px;
+           cursor: pointer;
+           transition: all 0.2s ease-in;
+           font-family: 'Raleway', sans-serif;
+       }
+
+       .button:hover {
+           background-color: transparent;
+           border: 1px solid #245841;
+           color: rgb(19, 19, 19);
+          
+       }
+   </style>
+</head>
+<body>
+<div id="container">
+   <div id="logo"></div>
+   <div id="login" class="button">Login</div>
+   <div id="signup" class="button">Sign up</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBp6nVqQqMlGf2J3OX1n1962jwzl97J1iw",
+    authDomain: "iot-oosd-project.firebaseapp.com",
+    databaseURL: "https://iot-oosd-project.firebaseio.com",
+    projectId: "iot-oosd-project",
+    storageBucket: "iot-oosd-project.appspot.com",
+    messagingSenderId: "1020817506938"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="index.js"></script>
+</body>
+</html>
+
